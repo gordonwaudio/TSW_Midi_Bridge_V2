@@ -1,0 +1,5 @@
+{
+  "_comment": "Placeholder V2 train config — full schema TBD. Replace this file with a real train config once the V2 mapping format is defined.",
+  "train_name": "Example Train",
+  "train_class": "ExampleClass"
+}

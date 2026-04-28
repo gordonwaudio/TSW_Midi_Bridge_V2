@@ -1,0 +1,30 @@
+{
+  "api": {
+    "host": "127.0.0.1",
+    "port": 31270,
+    "comm_key_path": "",
+    "api_host_history": [
+      "127.0.0.1"
+    ],
+    "poll_interval_hz": 1.0,
+    "request_timeout_s": 2.0,
+    "subscription_id": 1
+  },
+  "midi": {
+    "input_devices": [],
+    "output_devices": [],
+    "channel": 1
+  },
+  "gui": {
+    "monitor_buffer_lines": 200,
+    "theme": "default"
+  },
+  "osc": {
+    "enabled": false,
+    "listen_host": "0.0.0.0",
+    "listen_port": 9000,
+    "send_host": "127.0.0.1",
+    "send_port": 9001
+  },
+  "active_train_config": ""
+}

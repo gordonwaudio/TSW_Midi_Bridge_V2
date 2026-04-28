@@ -1,0 +1,4 @@
+python-rtmidi>=1.5
+python-osc>=1.8
+requests>=2.31
+jsonschema>=4.21
