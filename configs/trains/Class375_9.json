@@ -1,0 +1,210 @@
+{
+  "layout": "UK_MU_01",
+  "mappings": [
+    {
+      "id": "speed_readout",
+      "label": "Speed (tenths of kph via Pitch Bend)",
+      "control_type": "Label",
+      "active": true,
+      "api_read_path": "CurrentDrivableActor.Function.HUD_GetSpeed",
+      "direction": "api_to_midi",
+      "midi_type": "pitchbend",
+      "midi_channel": 1,
+      "scaling": "m_s_to_tenths_kph",
+      "poll": true
+    },
+    {
+      "id": "powerbrake",
+      "label": "Power Handle",
+      "control_type": "VSlider",
+      "active": true,
+      "api_read_path": "CurrentDrivableActor/PowerHandle.Function.GetCurrentNotchIndex",
+      "api_set_path": "VirtualRailDriver.Throttle",
+      "api_min": 0,
+      "api_max": 8,
+      "direction": "bidirectional",
+      "midi_type": "cc",
+      "midi_channel": 1,
+      "midi_number": 1,
+      "scaling": "notch_lookup",
+      "notch_values": [1.00, 0.94, 0.89, 0.78, 0.51, 0.27, 0.21, 0.13, 0.00],
+      "poll": true
+    },
+    {
+      "id": "reverser",
+      "label": "Reverser",
+      "control_type": "Rotary",
+      "active": true,
+      "api_read_path": "CurrentDrivableActor/Reverser.Function.GetCurrentNotchIndex",
+      "api_set_path": "VirtualRailDriver.Reverser",
+      "api_min": 0,
+      "api_max": 3,
+      "direction": "bidirectional",
+      "midi_type": "cc",
+      "midi_channel": 1,
+      "midi_number": 5,
+      "scaling": "notch_lookup",
+      "notch_values": [0.0, 0.2, 0.6, 1.0],
+      "poll": true
+    },
+    {
+      "id": "aws",
+      "label": "AWS",
+      "control_type": "Push",
+      "active": true,
+      "direction": "midi_to_api",
+      "midi_type": "note",
+      "midi_channel": 1,
+      "midi_number": 1,
+      "note_on_actions": [
+        {"path": "CurrentDrivableActor/AWS_Button.InputValue", "value": 1.0},
+        {"path": "CurrentDrivableActor/VigilancePedal.InputValue", "value": 0.0}
+      ],
+      "note_off_actions": [
+        {"path": "CurrentDrivableActor/AWS_Button.InputValue", "value": 0.0},
+        {"path": "CurrentDrivableActor/VigilancePedal.InputValue", "value": 1.0}
+      ],
+      "poll": false
+    },
+    {
+      "id": "horn",
+      "label": "Horn",
+      "control_type": "Rotary_centred",
+      "active": true,
+      "api_set_path": ["VirtualRailDriver.Horn Forward",
+                      "VirtualRailDriver.Horn Back"],  
+      "direction": "midi_to_api",
+      "midi_type": "cc",
+      "midi_channel": 1,
+      "midi_number": 6,
+      "cc_low": [
+        {"path": "VirtualRailDriver.Horn Forward", "value": 1.0},
+        {"path": "VirtualRailDriver.Horn Back",  "value": 0.0}
+      ],
+      "cc_high": [
+        {"path": "VirtualRailDriver.Horn Back", "value": 1.0},
+        {"path": "VirtualRailDriver.Horn Forward", "value": 0.0}
+      ],
+      "cc_mid": [
+        {"path": "VirtualRailDriver.Horn Forward", "value": 0.0},
+        {"path": "VirtualRailDriver.Horn Back", "value": 0.0}
+      ],
+      "poll": false
+    },
+    {
+      "id": "doorreleaseL",
+      "label": "Door Release Left",
+      "control_type": "Push",
+      "active": true,
+      "api_set_path": "CurrentDrivableActor/DoorAllRelease_L.InputValue",
+      "direction": "midi_to_api",
+      "midi_type": "note",
+      "midi_channel": 1,
+      "midi_number": 2,
+      "note_on_value": 1.0,
+      "note_off_value": 0.0,
+      "poll": false
+    },
+    {
+      "id": "doorreleaseR",
+      "label": "Door Release Right",
+      "control_type": "Push",
+      "active": true,
+      "api_set_path": "CurrentDrivableActor/DoorAllRelease_R.InputValue",
+      "direction": "midi_to_api",
+      "midi_type": "note",
+      "midi_channel": 1,
+      "midi_number": 3,
+      "note_on_value": 1.0,
+      "note_off_value": 0.0,
+      "poll": false
+    },
+    {
+      "id": "doorcloseL",
+      "label": "Door Close Left",
+      "control_type": "Push",
+      "active": true,
+      "api_set_path": "CurrentDrivableActor/DoorClose_L.InputValue",
+      "direction": "midi_to_api",
+      "midi_type": "note",
+      "midi_channel": 1,
+      "midi_number": 4,
+      "note_on_value": 1.0,
+      "note_off_value": 0.0,
+      "poll": false
+    },
+    {
+      "id": "doorcloseR",
+      "label": "Door Close Right",
+      "control_type": "Push",
+      "active": true,
+      "api_set_path": "CurrentDrivableActor/DoorClose_R.InputValue",
+      "direction": "midi_to_api",
+      "midi_type": "note",
+      "midi_channel": 1,
+      "midi_number": 5,
+      "note_on_value": 1.0,
+      "note_off_value": 0.0,
+      "poll": false
+    },
+    {
+      "id": "wipers",
+      "label": "Wipers",
+      "control_type": "Rotary",
+      "active": true,
+      "api_read_path": "CurrentDrivableActor/Wiper.Function.GetCurrentNotchIndex",
+      "api_set_path": "CurrentDrivableActor/Wiper.InputValue",
+      "api_min": 0,
+      "api_max": 3,
+      "direction": "bidirectional",
+      "midi_type": "cc",
+      "midi_channel": 1,
+      "midi_number": 7,
+      "scaling": "notch_lookup",
+      "notch_values": [0.0, 0.3, 0.5, 0.8],
+      "poll": true
+    },
+    {
+      "id": "hillstart",
+      "label": "Hill Start",
+      "control_type": "Push",
+      "active": true,
+      "api_set_path": "CurrentDrivableActor/BrakeHold.InputValue",
+      "direction": "midi_to_api",
+      "midi_type": "note",
+      "midi_channel": 1,
+      "midi_number": 7,
+      "note_on_value": 1.0,
+      "note_off_value": 0.0,
+      "poll": false
+    },
+    {
+      "id": "masterkey",
+      "label": "Master Key",
+      "control_type": "Rotary",
+      "active": true,
+      "api_set_path": "CurrentDrivableActor/MasterKey.InputValue",
+      "direction": "midi_to_api",
+      "midi_type": "cc",
+      "midi_channel": 1,
+      "midi_number": 8,
+      "cc_hi_value": 1.0,
+      "cc_lo_value": 0.0,
+      "poll": false
+    },
+    {
+      "id": "emergencybrake",
+      "label": "Emergency Brake",
+      "control_type": "Toggle",
+      "active": true,
+      "api_set_path": "CurrentDrivableActor/EmergencyBrake_L.InputValue",
+      "direction": "midi_to_api",
+      "midi_type": "note",
+      "midi_channel": 1,
+      "midi_number": 9,
+      "note_on_value": 1.0,
+      "note_off_value": 0.0,
+      "poll": false
+    }
+  ]
+}
