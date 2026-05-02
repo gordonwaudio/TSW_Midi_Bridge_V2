@@ -2,7 +2,7 @@
   "api": {
     "host": "127.0.0.1",
     "port": 31270,
-    "comm_key_path": "",
+    "comm_key_path": "/Volumes/M4_4TB_Th/Dev/TSW/TSW_Midi_Bridge_V2/docs/api/CommAPIKey.txt",
     "api_host_history": [
       "127.0.0.1"
     ],
@@ -11,8 +11,12 @@
     "subscription_id": 1
   },
   "midi": {
-    "input_devices": [],
-    "output_devices": [],
+    "input_devices": [
+      "TouchOSC Bridge"
+    ],
+    "output_devices": [
+      "TouchOSC Bridge"
+    ],
     "channel": 1
   },
   "gui": {
@@ -26,5 +30,5 @@
     "send_host": "127.0.0.1",
     "send_port": 9001
   },
-  "active_train_config": ""
+  "active_train_config": "Class375_9.json"
 }

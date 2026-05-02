@@ -27,7 +27,7 @@
       "midi_channel": 1,
       "midi_number": 1,
       "scaling": "notch_lookup",
-      "notch_values": [1.00, 0.94, 0.89, 0.78, 0.51, 0.27, 0.21, 0.13, 0.00],
+      "notch_values": [0.00, 0.13, 0.21, 0.27, 0.51, 0.78, 0.89, 0.94, 1.00],
       "poll": true
     },
     {
@@ -44,7 +44,7 @@
       "midi_channel": 1,
       "midi_number": 5,
       "scaling": "notch_lookup",
-      "notch_values": [0.0, 0.2, 0.6, 1.0],
+      "notch_values": [1.0, 0.6, 0.2, 0.0],
       "poll": true
     },
     {
@@ -161,7 +161,7 @@
       "midi_channel": 1,
       "midi_number": 7,
       "scaling": "notch_lookup",
-      "notch_values": [0.0, 0.3, 0.5, 0.8],
+      "notch_values": [1.0, -0.5, 0.0, 0.5],
       "poll": true
     },
     {
